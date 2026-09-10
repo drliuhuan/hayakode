@@ -9,8 +9,6 @@ A **Manifest V3** browser extension (one codebase for both Chrome and Edge) that
 - **Multiple codes per image**: numbered boxes are drawn on the image so you can pick the one you want.
 - **Link results** offer **Open in new tab** (only for `http` / `https`; dangerous protocols are never given an open action).
 
-Current version: **1.1.1**.
-
 ---
 
 ## Features
