@@ -1,0 +1,19 @@
+# ---------------------------------------------------------------------------
+# Public repository content policy (whitelist).
+# Only the paths explicitly allowed below are tracked; everything else in this
+# working directory (local notes, self-test suites, archives, logs) stays private.
+# ---------------------------------------------------------------------------
+
+/*
+!/manifest.json
+!/_locales/
+!/src/
+!/vendor/
+!/icons/
+!/assets/
+!/README.md
+!/README.zh-CN.md
+!/AUTHORS
+!/THANKS
+!/LICENSE
+!/.gitignore

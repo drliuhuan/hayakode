@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="optionsTitle">Hayakode Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="head">
+        <h1 data-i18n="optionsTitle">Hayakode Settings</h1>
+        <p class="sub" data-i18n="optionsSubtitle">
+          All recognition runs locally; the extension makes no network requests.
+        </p>
+      </header>
+
+      <section class="card">
+        <div class="row">
+          <div class="label">
+            <span class="name" data-i18n="optMinShortSideName">Floating button threshold (device pixels)</span>
+            <span class="hint" data-i18n="optMinShortSideHint"
+              >The button appears only when the rendered short side reaches this value</span
+            >
+          </div>
+          <div class="control">
+            <input id="minShortSide" type="number" min="32" max="200" step="1" />
+            <span class="unit" data-i18n="unitDevicePixels">device px</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">
+            <span class="name" data-i18n="optAlwaysShowName">Always show button</span>
+            <span class="hint" data-i18n="optAlwaysShowHint"
+              >When enabled, the button stays on the most recently hovered image</span
+            >
+          </div>
+          <div class="control">
+            <label class="switch">
+              <input id="alwaysShow" type="checkbox" />
+              <span class="slider" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">
+            <span class="name" data-i18n="optButtonOpacityName">Button opacity</span>
+            <span class="hint" data-i18n="optButtonOpacityHint"
+              >Opacity of the floating button when it is not hovered</span
+            >
+          </div>
+          <div class="control">
+            <input id="buttonOpacity" type="range" min="0.1" max="1" step="0.05" />
+            <output id="buttonOpacityValue" for="buttonOpacity">0.6</output>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">
+            <span class="name" data-i18n="optScanModeName">Recognition effort</span>
+            <span class="hint" data-i18n="optScanModeHint"
+              >"Thorough" enables tryHarder / rotate / invert / downscale for much better tolerance of distorted codes</span
+            >
+          </div>
+          <div class="control">
+            <select id="scanMode">
+              <option value="hard" data-i18n="scanModeHard">Thorough</option>
+              <option value="fast" data-i18n="scanModeFast">Fast</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">
+            <span class="name" data-i18n="optScanLinearName">Scan 1D barcodes</span>
+            <span class="hint" data-i18n="optScanLinearHint"
+              >By default only QR codes are scanned, to avoid false positives</span
+            >
+          </div>
+          <div class="control">
+            <label class="switch">
+              <input id="scanLinear" type="checkbox" />
+              <span class="slider" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">
+            <span class="name" data-i18n="optExpandName">Recognition area padding</span>
+            <span class="hint" data-i18n="optExpandHint"
+              >Extra pixels added around the image to preserve the QR code quiet zone</span
+            >
+          </div>
+          <div class="control">
+            <input id="expandPx" type="number" min="0" max="64" step="1" />
+            <span class="unit">px</span>
+          </div>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span id="saveState" class="save-state" role="status" data-i18n="saveAuto">Changes are saved automatically</span>
+        <span id="engineInfo" class="engine"></span>
+      </footer>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

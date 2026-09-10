@@ -1,0 +1,244 @@
+{
+  "extName": {
+    "message": "Hayakode QR Scanner",
+    "description": "Extension name shown in the browser and store."
+  },
+  "extDescription": {
+    "message": "Scan QR codes in any web page image with one click. Recognition runs fully offline on the rendered pixels, handles distorted codes and multiple codes per image, and never uploads images or makes any network request.",
+    "description": "Extension description shown in the browser and store."
+  },
+  "actionTitle": {
+    "message": "Scan QR codes in images on this page",
+    "description": "Toolbar button tooltip."
+  },
+  "contextMenuTitle": {
+    "message": "Scan QR code here",
+    "description": "Native right-click menu item shown on images."
+  },
+
+  "scanButtonTitle": {
+    "message": "Scan QR code in this image",
+    "description": "Floating scan button tooltip and accessible name."
+  },
+  "formatUnknown": {
+    "message": "Unknown format",
+    "description": "Fallback barcode format label."
+  },
+  "contentTypeText": {
+    "message": "Text",
+    "description": "Content type chip: plain text."
+  },
+  "contentTypeBinary": {
+    "message": "Binary",
+    "description": "Content type chip: binary data."
+  },
+  "contentTypeMixed": {
+    "message": "Mixed",
+    "description": "Content type chip: mixed content."
+  },
+  "contentTypeUnknownECI": {
+    "message": "Unknown charset",
+    "description": "Content type chip: unknown ECI charset."
+  },
+  "contentTypeUnknown": {
+    "message": "Unknown type",
+    "description": "Fallback content type chip."
+  },
+
+  "toastTargetGone": {
+    "message": "The target image is no longer visible. Hover over it again and retry.",
+    "description": "Toast when the hovered image disappeared before scanning."
+  },
+  "toastImageTooSmall": {
+    "message": "The image is too small. Zoom in and try again.",
+    "description": "Toast when the cropped region is too small to recognize."
+  },
+  "toastScanFailed": {
+    "message": "Scan failed",
+    "description": "Generic scan failure toast."
+  },
+  "toastNotFoundTall": {
+    "message": "No QR code recognized. The image could not be shown in full — scroll it completely into view and try again.",
+    "description": "Toast when a tall image could not be fully displayed."
+  },
+  "toastNotFound": {
+    "message": "No QR code recognized. If the code is small, zoom in on the image and try again.",
+    "description": "Toast when nothing was recognized."
+  },
+  "toastOpenFailed": {
+    "message": "Failed to open",
+    "description": "Toast when opening the link was rejected."
+  },
+  "toastNoImageContext": {
+    "message": "No recognizable image found. Right-click directly on an image and try again.",
+    "description": "Toast when the context-menu entry found no image."
+  },
+  "toastNoImageToolbar": {
+    "message": "No recognizable image found. Hover over an image first, then click the extension icon.",
+    "description": "Toast when the toolbar entry found no image."
+  },
+
+  "selectionItemAria": {
+    "message": "QR code $INDEX$",
+    "description": "Accessible name of a numbered multi-code selection box.",
+    "placeholders": {
+      "index": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "popupAria": {
+    "message": "QR code result",
+    "description": "Accessible name of the result dialog."
+  },
+  "popupTitle": {
+    "message": "Scan result",
+    "description": "Title of the result dialog."
+  },
+  "close": {
+    "message": "Close",
+    "description": "Close button label."
+  },
+  "closeToast": {
+    "message": "Dismiss notification",
+    "description": "Close button label of the toast."
+  },
+  "chipInverted": {
+    "message": "Inverted",
+    "description": "Chip shown when the code was recognized in inverted colors."
+  },
+  "popupDomainLabel": {
+    "message": "Domain: ",
+    "description": "Prefix before the host name of a recognized link."
+  },
+  "openInNewTab": {
+    "message": "Open in new tab",
+    "description": "Button that opens a recognized http/https link."
+  },
+  "copyLink": {
+    "message": "Copy link",
+    "description": "Button that copies a recognized link."
+  },
+  "copy": {
+    "message": "Copy",
+    "description": "Button that copies recognized text."
+  },
+  "copied": {
+    "message": "Copied",
+    "description": "Temporary label after a successful copy."
+  },
+  "copyFailed": {
+    "message": "Copy failed",
+    "description": "Temporary label after a failed copy."
+  },
+  "dangerousWarning": {
+    "message": "⚠ This content uses a dangerous protocol ($SCHEME$); opening has been blocked.",
+    "description": "Warning shown for non-http(s) protocols such as javascript: or data:.",
+    "placeholders": {
+      "scheme": {
+        "content": "$1",
+        "example": "javascript:"
+      }
+    }
+  },
+
+  "optionsTitle": {
+    "message": "Hayakode Settings",
+    "description": "Options page title."
+  },
+  "optionsSubtitle": {
+    "message": "All recognition runs locally; the extension makes no network requests.",
+    "description": "Options page subtitle."
+  },
+  "optMinShortSideName": {
+    "message": "Floating button threshold (device pixels)",
+    "description": "Options label: minimum rendered short side."
+  },
+  "optMinShortSideHint": {
+    "message": "The button appears only when the rendered short side (CSS pixels × device pixel ratio) reaches this value",
+    "description": "Options hint for the threshold."
+  },
+  "unitDevicePixels": {
+    "message": "device px",
+    "description": "Unit suffix for the threshold input."
+  },
+  "optAlwaysShowName": {
+    "message": "Always show button",
+    "description": "Options label: keep the button visible."
+  },
+  "optAlwaysShowHint": {
+    "message": "When enabled, the button stays on the most recently hovered image instead of following the pointer",
+    "description": "Options hint for always-show."
+  },
+  "optButtonOpacityName": {
+    "message": "Button opacity",
+    "description": "Options label: opacity of the floating button."
+  },
+  "optButtonOpacityHint": {
+    "message": "Opacity of the floating button when it is not hovered",
+    "description": "Options hint for opacity."
+  },
+  "optScanModeName": {
+    "message": "Recognition effort",
+    "description": "Options label: scan mode."
+  },
+  "optScanModeHint": {
+    "message": "\"Thorough\" enables tryHarder / rotate / invert / downscale for much better tolerance of distorted codes",
+    "description": "Options hint for scan mode."
+  },
+  "scanModeHard": {
+    "message": "Thorough",
+    "description": "Scan mode option: thorough."
+  },
+  "scanModeFast": {
+    "message": "Fast",
+    "description": "Scan mode option: fast."
+  },
+  "optScanLinearName": {
+    "message": "Scan 1D barcodes",
+    "description": "Options label: linear barcode scanning."
+  },
+  "optScanLinearHint": {
+    "message": "By default only QR codes are scanned, to avoid false positives",
+    "description": "Options hint for linear scanning."
+  },
+  "optExpandName": {
+    "message": "Recognition area padding",
+    "description": "Options label: extra pixels around the image."
+  },
+  "optExpandHint": {
+    "message": "Extra pixels added around the image to preserve the QR code quiet zone",
+    "description": "Options hint for padding."
+  },
+  "saveAuto": {
+    "message": "Changes are saved automatically",
+    "description": "Status text on the options page."
+  },
+  "saveDone": {
+    "message": "Saved",
+    "description": "Temporary status text after saving."
+  },
+  "engineInfo": {
+    "message": "Engine: $NAME$ v$VERSION$ (ZXing-C++ $COMMIT$)",
+    "description": "Engine version line on the options page.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "zxing-wasm"
+      },
+      "version": {
+        "content": "$2",
+        "example": "3.1.3"
+      },
+      "commit": {
+        "content": "$3",
+        "example": "a17fd9dc65"
+      }
+    }
+  },
+  "engineNotReady": {
+    "message": "Engine: not ready",
+    "description": "Engine status when the background worker is unavailable."
+  }
+}

@@ -1,0 +1,12 @@
+# 致谢 / Acknowledgements
+
+Hayakode QR Scanner 建立在优秀的开源项目之上，在此向每一位原作者致以诚挚感谢。
+Hayakode QR Scanner stands on the shoulders of great open-source projects. Sincere thanks to every original author.
+
+## 识别引擎 / Recognition Engine
+
+- **zxing-wasm**（[Sec-ant/zxing-wasm](https://github.com/Sec-ant/zxing-wasm)）— ZXing-C++ 的 WebAssembly 封装，本项目内置其 reader 构建 / WebAssembly bindings for ZXing-C++, this project bundles its reader build（MIT，作者 / by Ze-Zheng Wu）。许可证原文见 `vendor/zxing-wasm/LICENSE` / full license text at `vendor/zxing-wasm/LICENSE`。
+- **ZXing-C++**（[zxing-cpp/zxing-cpp](https://github.com/zxing-cpp/zxing-cpp)）— 条码识别核心库，经 zxing-wasm 编译为 WebAssembly / the barcode recognition core compiled to WebAssembly by zxing-wasm（Apache-2.0）。
+
+再次感谢所有开源贡献者的工作，让本地离线的二维码识别成为可能。
+Once again, thank you to all open-source contributors for making fully local, offline QR code recognition possible.
