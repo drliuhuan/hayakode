@@ -1,6 +1,8 @@
-# Hayakode极速二维码识别
+# Hayakode - 离线二维码识别
 
 **[English](README.md) | 简体中文**
+
+**在 Microsoft Edge 商店安装**：[Hayakode - 离线二维码识别](https://microsoftedge.microsoft.com/addons/detail/fpdnfflciejhnlfiijcalooikljheaak)
 
 一个 **Manifest V3** 浏览器扩展（Chrome / Edge 通用，同一份代码零改动）：在任意网页图片的右下角显示悬浮扫码按钮，点击后识别**点击时刻该图片在屏幕上的渲染像素**（截图），而不是图片原文件。
 
@@ -24,6 +26,8 @@
 ---
 
 ## 安装步骤（加载已解压扩展）
+
+本扩展已在 Microsoft Edge 商店上架（见上方链接），从商店安装无需手动加载解压目录。
 
 1. 打开扩展管理页：
    - **Chrome**：地址栏输入 `chrome://extensions`
@@ -171,8 +175,8 @@
 
 **Buy me some tokens. ⚡**
 
-Hayakode QR Scanner 完全免费开源。如果你觉得它有用，欢迎扫码支持作者继续开发——每一份心意都会变成更多的 token，变成更好的功能。
-Hayakode QR Scanner is completely free and open source. If you find it useful, feel free to scan and support the author — every token counts, and it all goes back into making this project better.
+Hayakode - Offline QR Scanner 完全免费开源。如果你觉得它有用，欢迎扫码支持作者继续开发——每一份心意都会变成更多的 token，变成更好的功能。
+Hayakode - Offline QR Scanner is completely free and open source. If you find it useful, feel free to scan and support the author — every token counts, and it all goes back into making this project better.
 
 | 微信支付 / WeChat Pay | 支付宝 / Alipay |
 |---|---|

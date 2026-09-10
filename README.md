@@ -1,6 +1,8 @@
-# Hayakode QR Scanner
+# Hayakode - Offline QR Scanner
 
 **English | [简体中文](README.zh-CN.md)**
+
+**Install from Microsoft Edge Add-ons**: [Hayakode - Offline QR Scanner](https://microsoftedge.microsoft.com/addons/detail/fpdnfflciejhnlfiijcalooikljheaak)
 
 A **Manifest V3** browser extension (one codebase for both Chrome and Edge) that shows a floating scan button on the bottom-right corner of any web page image. Clicking it recognizes the **exact pixels the image is rendered with on screen at that moment** (a screenshot of the rendered image), not the original image file.
 
@@ -24,6 +26,8 @@ A **Manifest V3** browser extension (one codebase for both Chrome and Edge) that
 ---
 
 ## Installation (load unpacked)
+
+This extension is published on Microsoft Edge Add-ons (see the link above); installing from the store does not require loading the unpacked folder manually.
 
 1. Open the extensions page:
    - **Chrome**: type `chrome://extensions` in the address bar.
@@ -171,8 +175,8 @@ This project is built on the work of upstream open-source projects. See [THANKS]
 
 **Buy me some tokens. ⚡**
 
-Hayakode QR Scanner is completely free and open source. If you find it useful, feel free to scan and support the author — every token counts, and it all goes back into making this project better.
-Hayakode QR Scanner 完全免费开源。如果你觉得它有用，欢迎扫码支持作者继续开发——每一份心意都会变成更多的 token，变成更好的功能。
+Hayakode - Offline QR Scanner is completely free and open source. If you find it useful, feel free to scan and support the author — every token counts, and it all goes back into making this project better.
+Hayakode - Offline QR Scanner 完全免费开源。如果你觉得它有用，欢迎扫码支持作者继续开发——每一份心意都会变成更多的 token，变成更好的功能。
 
 | WeChat Pay / 微信支付 | Alipay / 支付宝 |
 |---|---|
