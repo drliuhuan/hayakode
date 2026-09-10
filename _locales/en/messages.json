@@ -152,15 +152,15 @@
     "description": "Options page subtitle."
   },
   "optMinShortSideName": {
-    "message": "Floating button threshold (device pixels)",
+    "message": "Floating button threshold (visual size, CSS pixels)",
     "description": "Options label: minimum rendered short side."
   },
   "optMinShortSideHint": {
-    "message": "The button appears only when the rendered short side (CSS pixels × device pixel ratio) reaches this value",
+    "message": "The button appears only when the image's rendered short side in CSS pixels reaches this value; independent of screen zoom and device pixel ratio",
     "description": "Options hint for the threshold."
   },
-  "unitDevicePixels": {
-    "message": "device px",
+  "unitCssPixels": {
+    "message": "CSS px",
     "description": "Unit suffix for the threshold input."
   },
   "optAlwaysShowName": {

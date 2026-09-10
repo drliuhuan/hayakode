@@ -9,7 +9,7 @@ A **Manifest V3** browser extension (one codebase for both Chrome and Edge) that
 - **Multiple codes per image**: numbered boxes are drawn on the image so you can pick the one you want.
 - **Link results** offer **Open in new tab** (only for `http` / `https`; dangerous protocols are never given an open action).
 
-Current version: **1.1.0**.
+Current version: **1.1.1**.
 
 ---
 
@@ -61,14 +61,14 @@ Settings are stored in `chrome.storage.local` and apply immediately.
 
 | Setting | Default | Description |
 | --- | --- | --- |
-| Floating button threshold (device pixels) | `64` | The button appears only when the rendered short side (**CSS pixels × device pixel ratio**) is at least this value. Adjustable from 32 to 200. |
+| Floating button threshold (visual size, CSS pixels) | `64` | The button appears only when the image's rendered short side in **CSS pixels** is at least this value. It is a **visual-size** check, so it is independent of screen zoom and device pixel ratio. Adjustable from 32 to 200. |
 | Always show button | Off | When on, the button does not depend on hovering and stays on the most recently hovered image; touch devices always show it. |
 | Button opacity | `0.6` | Opacity of the floating button when it is not hovered. |
 | Recognition effort | Thorough | `Thorough` = `tryHarder` + rotation + inversion + downscale; `Fast` = quicker but less tolerant. |
 | Scan 1D barcodes | Off | By default only QR codes are scanned to avoid false positives. |
 | Recognition area padding | `8` | Extra pixels added around the image to preserve the QR code quiet zone. |
 
-> **Why device pixels?** Browser zoom (Ctrl +/-) only raises the device pixel ratio and does not change CSS sizes. Judging by CSS size would mean "after zooming the page the code is recognizable but the button never appears". Judging by device pixels covers the core "zoom in, then scan" scenario: a 40px image shows no button at 1×, but does appear at 200% zoom (40 × 2 = 80 device pixels). The threshold only affects **whether the floating button is shown**; it does not affect recognition area calculation or cropping.
+> **Why CSS pixels (visual size)?** The threshold decides only **whether the floating button appears**, and it follows what the user actually sees: the image's rendered short side in CSS pixels. A high-DPI screen no longer lowers the bar — a 40px icon stays below the default 64px threshold at any device pixel ratio, so the button does not clutter small icons that cannot contain a QR code. The deliberate trade-off is that zooming the page (Ctrl +) no longer makes a too-small image show the button; such images can still be scanned through the **right-click menu entry**, which is not gated by this threshold. Device pixels are still what the capture/crop/decode path uses, so recognition itself is unchanged.
 
 ---
 
@@ -155,7 +155,7 @@ To verify that the packaged WASM still loads under the declared CSP, load the un
 - Mobile Chrome is not supported (it has no extensions).
 - Images inside cross-origin iframes are not injected in this release (`all_frames: false`).
 - Recognition input is "rendered pixels", so a very small original image may fail at 1× — zoom in first; images below the threshold can still be scanned through the context-menu entry.
-- The display threshold uses **device pixels**: zooming the page (Ctrl +) raises the device pixel ratio and the button appears once the threshold is reached.
+- The display threshold uses **visual size (CSS pixels)**: it is independent of screen zoom and device pixel ratio, so a very small image shows no floating button even on a high-DPI screen or after zooming. Use the context-menu entry to scan images below the threshold.
 - 1D barcodes are off by default and can be enabled in the settings.
 
 ---

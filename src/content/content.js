@@ -23,7 +23,7 @@
   const BUTTON_SIZE = 32;
   const BUTTON_INSET = 8; // Inset 8px from the bottom-right corner of the image.
   const DEFAULTS = Object.freeze({
-    minShortSide: 64,
+    minShortSide: 64, // Minimum visual (CSS px) short side for the hover button.
     alwaysShow: false,
     buttonOpacity: 0.6,
     scanMode: "hard",
@@ -392,12 +392,22 @@
     return null;
   }
 
-  // The display threshold is judged in **device pixels**: CSS short side ×
-  // 设备像素比。浏览器缩放只提升 devicePixelRatio、不改变 CSS 尺寸，按设备
-  // 像素判断才能覆盖“用户放大页面后二维码已可识别、按钮应出现”的场景。
-  function deviceShortSide(rect) {
-    const dpr = window.devicePixelRatio || 1;
-    return Math.min(rect.width, rect.height) * dpr;
+  // The button display threshold is judged in **visual size (CSS pixels)**:
+  // the image's rendered short side compared directly against the setting.
+  // This is deliberately independent of the device pixel ratio, so a small
+  // icon on a high-DPI screen is not mistaken for a scannable image. Device
+  // pixels are still what matters for the *decode* path (crop + recognition),
+  // which is untouched.
+  function cssShortSide(rect) {
+    return Math.min(rect.width, rect.height);
+  }
+
+  // Display-only gate for the hover button. It is intentionally kept OUT of
+  // qualify(): qualify() answers "is this a visible image element at all", and
+  // the explicit entry points (context menu / toolbar icon) use it to resolve
+  // a target regardless of size. Only the floating button is gated.
+  function meetsDisplayThreshold(r) {
+    return cssShortSide(r) >= state.settings.minShortSide;
   }
 
   function qualify(el) {
@@ -409,7 +419,6 @@
       return null;
     }
     if (r.width <= 0 || r.height <= 0) return null;
-    if (deviceShortSide(r) < state.settings.minShortSide) return null;
     let cs;
     try {
       cs = getComputedStyle(el);
@@ -484,7 +493,8 @@
     try {
       state.ro = new ResizeObserver(() => {
         if (!state.candidate) return;
-        if (!qualify(state.candidate)) hideButton();
+        const r = qualify(state.candidate);
+        if (!r || !meetsDisplayThreshold(r)) hideButton();
         else positionButton();
       });
       state.ro.observe(state.candidate);
@@ -539,7 +549,7 @@
     const found = findImageCandidate(p.target);
     if (found) {
       const r = qualify(found);
-      if (r) {
+      if (r && meetsDisplayThreshold(r)) {
         if (found !== state.candidate) showButton(found);
         else positionButton();
         return;
@@ -580,7 +590,8 @@
     requestAnimationFrame(() => {
       viewportRaf = false;
       if (state.buttonVisible) {
-        if (!state.candidate || !state.candidate.isConnected || !qualify(state.candidate)) hideButton();
+        const r = state.candidate && state.candidate.isConnected ? qualify(state.candidate) : null;
+        if (!r || !meetsDisplayThreshold(r)) hideButton();
         else positionButton();
       }
       if (state.selection) positionSelection();
@@ -1027,9 +1038,9 @@
   function showToast(message) {
     ensureUI();
     clearToast();
-    const t = createEl("div", "toast");
-    t.setAttribute("role", "status");
-    t.appendChild(createEl("div", "toast-msg", message));
+    const toastEl = createEl("div", "toast");
+    toastEl.setAttribute("role", "status");
+    toastEl.appendChild(createEl("div", "toast-msg", message));
     const close = createEl("button", "icon-btn toast-close", "×");
     close.type = "button";
     close.setAttribute("aria-label", t("closeToast", undefined, "关闭提示"));
@@ -1037,12 +1048,12 @@
       e.stopPropagation();
       clearToast();
     });
-    t.appendChild(close);
-    toastLayer.appendChild(t);
+    toastEl.appendChild(close);
+    toastLayer.appendChild(toastEl);
     const timer = setTimeout(() => {
-      if (state.toast && state.toast.el === t) clearToast();
+      if (state.toast && state.toast.el === toastEl) clearToast();
     }, 3000);
-    state.toast = { el: t, timer };
+    state.toast = { el: toastEl, timer };
   }
 
   function clearToast() {

@@ -152,15 +152,15 @@
     "description": "设置页副标题。"
   },
   "optMinShortSideName": {
-    "message": "悬浮按钮显示阈值（设备像素）",
+    "message": "悬浮按钮显示阈值（视觉尺寸，CSS 像素）",
     "description": "设置项：最小渲染短边。"
   },
   "optMinShortSideHint": {
-    "message": "图片渲染短边（CSS 像素 × 设备像素比）达到该值才显示按钮",
+    "message": "图片渲染短边（CSS 像素）达到该值才显示按钮，与屏幕缩放 / 设备像素比无关",
     "description": "阈值的说明文案。"
   },
-  "unitDevicePixels": {
-    "message": "设备像素",
+  "unitCssPixels": {
+    "message": "CSS 像素",
     "description": "阈值输入框的单位。"
   },
   "optAlwaysShowName": {

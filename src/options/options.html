@@ -18,14 +18,14 @@
       <section class="card">
         <div class="row">
           <div class="label">
-            <span class="name" data-i18n="optMinShortSideName">Floating button threshold (device pixels)</span>
+            <span class="name" data-i18n="optMinShortSideName">Floating button threshold (visual size, CSS pixels)</span>
             <span class="hint" data-i18n="optMinShortSideHint"
-              >The button appears only when the rendered short side reaches this value</span
+              >The button appears only when the image's rendered short side in CSS pixels reaches this value; independent of screen zoom and device pixel ratio</span
             >
           </div>
           <div class="control">
             <input id="minShortSide" type="number" min="32" max="200" step="1" />
-            <span class="unit" data-i18n="unitDevicePixels">device px</span>
+            <span class="unit" data-i18n="unitCssPixels">CSS px</span>
           </div>
         </div>
 
